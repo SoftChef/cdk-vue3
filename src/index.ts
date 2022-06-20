@@ -35,10 +35,15 @@ import {
   Construct,
 } from 'constructs';
 import {
+  ClientConfigProps,
   DistributionProps,
   VueDeploymentProps,
 } from './types';
-import { ViteBundling } from './vite-bundling';
+import {
+  ViteBundling,
+} from './vite-bundling';
+
+export * from './types';
 
 export class VueDeployment extends Construct {
 
@@ -54,7 +59,7 @@ export class VueDeployment extends Construct {
     super(scope, id);
     this.bucket = props.bucket ? props.bucket : this.createBucket(props.bucketName);
     this.bucketDeployment = this.createBucketDeployment(props);
-    this.uploadConfigResource = this.createUploadConfigResource(props);
+    this.uploadConfigResource = this.createUploadConfigResource(props.clientConfig);
     if (props.enableDistribution) {
       if (props.distribution instanceof Distribution) {
         this.cloudfrontDistribution = props.distribution;
@@ -106,7 +111,7 @@ export class VueDeployment extends Construct {
     return new BucketDeployment(this, 'DeployWebsite', bucketDeploymentProps);
   }
 
-  private createUploadConfigResource(props: VueDeploymentProps): CustomResource {
+  private createUploadConfigResource(props?: ClientConfigProps): CustomResource {
     const updateConfigFunctionRole = new Role(this, 'UpdateConfigFunctionRole', {
       assumedBy: new CompositePrincipal(
         new ServicePrincipal('lambda.amazonaws.com'),
@@ -149,8 +154,8 @@ export class VueDeployment extends Construct {
       pascalCaseProperties: false,
       properties: {
         bucketName: this.bucket.bucketName,
-        configJsKeyName: props.clientConfig?.keyName ?? 'config.js',
-        ...(props.clientConfig?.config ?? {}),
+        configJsKeyName: props?.keyName ?? 'config.js',
+        ...(props?.config ?? {}),
       },
       removalPolicy: RemovalPolicy.DESTROY,
     });

@@ -20,11 +20,6 @@ export interface VueDeploymentProps {
    */
   readonly bundling?: BundlingProps;
   /**
-   * VueJS Major version
-   * @default 3
-   */
-  // readonly majorVersion?: 2 | 3;
-  /**
    * Use target bucket or create new bucket
    */
   readonly bucket?: Bucket;

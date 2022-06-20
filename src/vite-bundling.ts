@@ -11,7 +11,7 @@ import {
 } from 'aws-cdk-lib/aws-s3-deployment';
 import {
   BundlingProps,
-} from './types';
+} from './types/bundling';
 import {
   exec,
 } from './utils';
