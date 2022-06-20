@@ -3,7 +3,7 @@
   "description": "Auto deploy website with VueJs 3 to S3 bucket and CloudFront distribution.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/minche/cdk-vue3.git"
+    "url": "https://github.com/softchef/cdk-vue3.git"
   },
   "scripts": {
     "build": "npx projen build",

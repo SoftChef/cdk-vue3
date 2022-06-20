@@ -12,7 +12,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
   npmAccess: NpmAccess.PUBLIC,
-  repositoryUrl: 'https://github.com/minche/cdk-vue3.git',
+  repositoryUrl: 'https://github.com/softchef/cdk-vue3.git',
   cdkVersion: '2.1.0',
   majorVersion: 2,
   defaultReleaseBranch: 'main',
