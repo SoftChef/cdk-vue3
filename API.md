@@ -306,7 +306,7 @@ const distributionProps: DistributionProps = { ... }
 | <code><a href="#@softchef/cdk-vue3.DistributionProps.property.minimumProtocolVersion">minimumProtocolVersion</a></code> | <code>aws-cdk-lib.aws_cloudfront.SecurityPolicyProtocol</code> | The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. |
 | <code><a href="#@softchef/cdk-vue3.DistributionProps.property.priceClass">priceClass</a></code> | <code>aws-cdk-lib.aws_cloudfront.PriceClass</code> | The price class that corresponds with the maximum price that you want to pay for CloudFront service. |
 | <code><a href="#@softchef/cdk-vue3.DistributionProps.property.webAclId">webAclId</a></code> | <code>string</code> | Unique identifier that specifies the AWS WAF web ACL to associate with this CloudFront distribution. |
-| <code><a href="#@softchef/cdk-vue3.DistributionProps.property.websiteDirectoryPrefix">websiteDirectoryPrefix</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@softchef/cdk-vue3.DistributionProps.property.websiteDirectoryPrefix">websiteDirectoryPrefix</a></code> | <code>string</code> | S3 bucket prefix. |
 
 ---
 
@@ -574,6 +574,8 @@ public readonly websiteDirectoryPrefix: string;
 ```
 
 - *Type:* string
+
+S3 bucket prefix.
 
 ---
 
