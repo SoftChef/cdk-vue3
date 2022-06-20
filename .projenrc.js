@@ -1,4 +1,5 @@
 const { awscdk, AUTOMATION_TOKEN } = require('projen');
+const { NpmAccess } = require('projen/lib/javascript');
 
 const PROJECT_NAME = '@softchef/cdk-vue3';
 const PROJECT_DESCRIPTION = 'Auto deploy website with VueJs 3 to S3 bucket and CloudFront distribution.';
@@ -10,6 +11,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorOrganization: true,
   name: PROJECT_NAME,
   description: PROJECT_DESCRIPTION,
+  npmAccess: NpmAccess.PUBLIC,
   repositoryUrl: 'https://github.com/minche/cdk-vue3.git',
   cdkVersion: '2.1.0',
   majorVersion: 2,
