@@ -30,6 +30,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     'cdk',
     'vue',
     'vuejs',
+    'vue3',
     'cloudfront',
     'cdn',
     'web',

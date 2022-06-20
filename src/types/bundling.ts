@@ -19,11 +19,6 @@ export interface BundlingProps {
    */
   readonly runsLocally?: boolean;
   /**
-   * Force use docker to bundling
-   * @default false
-   */
-  // readonly forceDockerBundling?: boolean;
-  /**
    * Specify docker node version
    */
   readonly nodeImage?: string | 'public.ecr.aws/bitnami/node';
