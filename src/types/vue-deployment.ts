@@ -16,6 +16,11 @@ export interface VueDeploymentProps {
    */
   readonly source: string;
   /**
+   * Build script command
+   * @default build
+   */
+  readonly buildCommand?: string;
+  /**
    * Specify bundling options
    */
   readonly bundling?: BundlingProps;

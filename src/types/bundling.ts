@@ -10,6 +10,10 @@ export interface BundlingProps {
     [ key: string ]: string;
   };
   /**
+   * Build script command
+   */
+  readonly buildCommand?: string;
+  /**
    * Bundling tool, Vite or VueCLI
    */
   readonly tool?: 'Vite' | 'VueCLI';

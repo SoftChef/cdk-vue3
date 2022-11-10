@@ -29,7 +29,13 @@ export class ViteBundling implements BundlingOptions {
 
   private static runsLocally?: boolean | true;
 
-  private static generateBundlingCommands(source: string, bundlingArguments: string, stage: string, outDir: string): string[][] {
+  private static generateBundlingCommands(
+    source: string,
+    buildCommand: string,
+    bundlingArguments: string,
+    stage: string,
+    outDir: string,
+  ): string[][] {
     let dependencyManager: string = 'NPM';
     if (fs.existsSync(`${source}/yarn.lock`)) {
       dependencyManager = 'YARN';
@@ -42,14 +48,14 @@ export class ViteBundling implements BundlingOptions {
       bundlingCommands.push(...[
         ['echo', '"Npm version: $(npm -v)"'],
         ['npm', 'install', '--cache=./.cache'],
-        ['npm', 'run', 'build', '--', bundlingArguments, '--outDir', outDir, '--emptyOutDir'],
+        ['npm', 'run', buildCommand, '--', bundlingArguments, '--outDir', outDir, '--emptyOutDir'],
         ['rm -Rf ./.cache'],
       ]);
     } else {
       bundlingCommands.push(...[
         ['echo', '"Yarn version: $(yarn -v)"'],
         ['yarn', 'install', '--cache-folder', './.cache'],
-        ['yarn', 'build', '--', bundlingArguments, '--outDir', outDir, '--emptyOutDir'],
+        ['yarn', buildCommand, '--', bundlingArguments, '--outDir', outDir, '--emptyOutDir'],
         ['rm', '-Rf', './.cache'],
       ]);
     }
@@ -73,7 +79,7 @@ export class ViteBundling implements BundlingOptions {
       this.image = DockerImage.fromRegistry('williamyeh/dummy');
     }
     const stage: string = 'Docker';
-    const bundlingCommands: string[][] = ViteBundling.generateBundlingCommands(source, props?.bundlingArguments ?? '', stage, AssetStaging.BUNDLING_OUTPUT_DIR);
+    const bundlingCommands: string[][] = ViteBundling.generateBundlingCommands(source, props?.buildCommand ?? 'build', props?.bundlingArguments ?? '', stage, AssetStaging.BUNDLING_OUTPUT_DIR);
     this.command = ['bash', '-c', bundlingCommands.map(bundlingCommand => bundlingCommand.join(' ')).join(';')];
     this.local = {
       tryBundle(outputDir: string) {
@@ -83,7 +89,7 @@ export class ViteBundling implements BundlingOptions {
         }
         try {
           const localStage: string = 'Locally';
-          const localBundlingCommands: string[][] = ViteBundling.generateBundlingCommands(source, props?.bundlingArguments ?? '', localStage, outputDir);
+          const localBundlingCommands: string[][] = ViteBundling.generateBundlingCommands(source, props?.buildCommand ?? 'build', props?.bundlingArguments ?? '', localStage, outputDir);
           for (const localBundlingCommand of localBundlingCommands) {
             const command: string = localBundlingCommand.shift()!;
             const args: string[] = localBundlingCommand;
