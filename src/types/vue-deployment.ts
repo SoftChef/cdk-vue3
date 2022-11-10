@@ -41,11 +41,13 @@ export interface VueDeploymentProps {
    */
   readonly memoryLimit?: number;
   /**
-   * Prune S3 bucket files, default false
+   * Prune S3 bucket files
+   * @default false
    */
   readonly prune?: boolean;
   /**
-   * Retain S3 bucket files on delete stack, default false
+   * Retain S3 bucket files on delete stack
+   * @default false
    */
   readonly retainOnDelete?: boolean;
   /**
@@ -54,7 +56,7 @@ export interface VueDeploymentProps {
   readonly clientConfig?: ClientConfigProps;
   /**
    * Enable CloudFront distribution
-   * @default true
+   * @default false
    */
   readonly enableDistribution?: boolean;
   /**
