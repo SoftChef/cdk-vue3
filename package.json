@@ -1,8 +1,9 @@
 {
-  "name": "cdk-vue3",
+  "name": "@softchef/cdk-vue3",
+  "description": "Auto deploy website with VueJs 3 to S3 bucket and CloudFront distribution.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/minche/cdk-vue3.git"
+    "url": "https://github.com/softchef/cdk-vue3.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -29,9 +30,10 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "MinCheTsai",
-    "email": "minche@softchef.com",
-    "organization": false
+    "name": "SoftChef",
+    "email": "poke@softchef.com",
+    "url": "https://www.softchef.com",
+    "organization": true
   },
   "devDependencies": {
     "@types/jest": "^27",
@@ -62,10 +64,20 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
-    "cdk"
+    "aws",
+    "cdk",
+    "cdn",
+    "cloudfront",
+    "vue",
+    "vue3",
+    "vuejs",
+    "web"
   ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [
