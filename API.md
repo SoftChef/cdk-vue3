@@ -161,11 +161,24 @@ const bundlingProps: BundlingProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@softchef/cdk-vue3.BundlingProps.property.buildCommand">buildCommand</a></code> | <code>string</code> | Build script command. |
 | <code><a href="#@softchef/cdk-vue3.BundlingProps.property.bundlingArguments">bundlingArguments</a></code> | <code>string</code> | Specify bundling arguments when run build. |
 | <code><a href="#@softchef/cdk-vue3.BundlingProps.property.environments">environments</a></code> | <code>{[ key: string ]: string}</code> | Specify environments on bundling. |
 | <code><a href="#@softchef/cdk-vue3.BundlingProps.property.nodeImage">nodeImage</a></code> | <code>string</code> | Specify docker node version. |
 | <code><a href="#@softchef/cdk-vue3.BundlingProps.property.runsLocally">runsLocally</a></code> | <code>boolean</code> | Runs bunding command locally. |
 | <code><a href="#@softchef/cdk-vue3.BundlingProps.property.tool">tool</a></code> | <code>string</code> | Bundling tool, Vite or VueCLI. |
+
+---
+
+##### `buildCommand`<sup>Optional</sup> <a name="buildCommand" id="@softchef/cdk-vue3.BundlingProps.property.buildCommand"></a>
+
+```typescript
+public readonly buildCommand: string;
+```
+
+- *Type:* string
+
+Build script command.
 
 ---
 
@@ -596,6 +609,7 @@ const vueDeploymentProps: VueDeploymentProps = { ... }
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.source">source</a></code> | <code>string</code> | VueJS source directory. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.bucket">bucket</a></code> | <code>aws-cdk-lib.aws_s3.Bucket</code> | Use target bucket or create new bucket. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.bucketName">bucketName</a></code> | <code>string</code> | Specify S3 bucket name. |
+| <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.buildCommand">buildCommand</a></code> | <code>string</code> | Build script command. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.bundling">bundling</a></code> | <code><a href="#@softchef/cdk-vue3.BundlingProps">BundlingProps</a></code> | Specify bundling options. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.clientConfig">clientConfig</a></code> | <code><a href="#@softchef/cdk-vue3.ClientConfigProps">ClientConfigProps</a></code> | Specify client config options. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.Distribution \| <a href="#@softchef/cdk-vue3.DistributionProps">DistributionProps</a></code> | CloudFront distribution. |
@@ -640,6 +654,19 @@ public readonly bucketName: string;
 - *Type:* string
 
 Specify S3 bucket name.
+
+---
+
+##### `buildCommand`<sup>Optional</sup> <a name="buildCommand" id="@softchef/cdk-vue3.VueDeploymentProps.property.buildCommand"></a>
+
+```typescript
+public readonly buildCommand: string;
+```
+
+- *Type:* string
+- *Default:* build
+
+Build script command.
 
 ---
 
