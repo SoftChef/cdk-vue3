@@ -615,8 +615,8 @@ const vueDeploymentProps: VueDeploymentProps = { ... }
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.distribution">distribution</a></code> | <code>aws-cdk-lib.aws_cloudfront.Distribution \| <a href="#@softchef/cdk-vue3.DistributionProps">DistributionProps</a></code> | CloudFront distribution. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.enableDistribution">enableDistribution</a></code> | <code>boolean</code> | Enable CloudFront distribution. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.memoryLimit">memoryLimit</a></code> | <code>number</code> | Bucket Deployment memoryLimit. |
-| <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.prune">prune</a></code> | <code>boolean</code> | Prune S3 bucket files, default false. |
-| <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.retainOnDelete">retainOnDelete</a></code> | <code>boolean</code> | Retain S3 bucket files on delete stack, default false. |
+| <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.prune">prune</a></code> | <code>boolean</code> | Prune S3 bucket files. |
+| <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.retainOnDelete">retainOnDelete</a></code> | <code>boolean</code> | Retain S3 bucket files on delete stack. |
 | <code><a href="#@softchef/cdk-vue3.VueDeploymentProps.property.websiteDirectoryPrefix">websiteDirectoryPrefix</a></code> | <code>string</code> | S3 bucket prefix. |
 
 ---
@@ -713,7 +713,7 @@ public readonly enableDistribution: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* true
+- *Default:* false
 
 Enable CloudFront distribution.
 
@@ -738,8 +738,9 @@ public readonly prune: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* false
 
-Prune S3 bucket files, default false.
+Prune S3 bucket files.
 
 ---
 
@@ -750,8 +751,9 @@ public readonly retainOnDelete: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* false
 
-Retain S3 bucket files on delete stack, default false.
+Retain S3 bucket files on delete stack.
 
 ---
 
